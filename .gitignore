@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+# Data / local runs
+task_runs/
+searxng/data/
+*.log
+.DS_Store

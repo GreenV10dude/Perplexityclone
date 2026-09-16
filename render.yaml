@@ -1,0 +1,16 @@
+# One-click backend hosting on Render (the static site lives on GitHub Pages).
+# The Pages build sets NEXT_PUBLIC_API_URL to this service's URL via the API_URL repo secret.
+services:
+  - type: web
+    name: freeplexity-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SEARXNG_URL
+        value: https://searx.be
+      - key: SEARXNG_FALLBACKS
+        value: https://searx.be,https://search.bus-hit.me
+      - key: CORS_ORIGINS
+        value: "*"

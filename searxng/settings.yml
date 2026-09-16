@@ -1,0 +1,55 @@
+# SearXNG — bundled unlimited search backend
+# JSON must stay enabled for the Free-Perplexity backend.
+use_default_settings: true
+server:
+  secret_key: "free-perplexity-dev-key-change-me"
+  limiter: false
+  image_proxy: true
+  method: "GET"
+  default_http_headers:
+    User-Agent: "Mozilla/5.0 (FreePerplexity)"
+search:
+  safe_search: 1
+  autocomplete: ""
+  default_lang: "en"
+  formats:
+    - html
+    - json
+    - csv
+    - rss
+engines:
+  - name: google
+    engine: google
+    shortcut: go
+    disabled: false
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+  - name: brave
+    engine: brave
+    shortcut: br
+    disabled: false
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    disabled: false
+  - name: wikipedia
+    engine: wikipedia
+    shortcut: wp
+    disabled: false
+  - name: arxiv
+    engine: arxiv
+    shortcut: arx
+    disabled: false
+    categories: [science]
+  - name: github
+    engine: github
+    shortcut: gh
+    disabled: false
+    categories: [it]
+outgoing:
+  request_timeout: 8.0
+  max_request_timeout: 15.0
+  pool_connections: 100
+  pool_maxsize: 20
